@@ -1,4 +1,3 @@
 flask
 telebot
-treading
 requests
