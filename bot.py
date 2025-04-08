@@ -1,4 +1,3 @@
-from flask import Flask, request
 import threading
 import telebot
 import requests
@@ -7,10 +6,8 @@ import time
 import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-app = Flask(__name__)
-
 # Initialize the bot
-bot = telebot.TeleBot("7655241604:AAE0HaspxxxiW6_-4teJj_yxEgf4YwVUpE4")
+bot = telebot.TeleBot("YOUR_BOT_TOKEN_HERE")  # Replace with your actual bot token
 
 # Session management
 session = requests.Session()
@@ -93,7 +90,7 @@ def check_url(url):
             return [], 400, "Invalid", "Invalid", "Invalid URL", "N/A", "N/A"
         
         headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
+            'User -Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
             'Referer': 'https://www.google.com'
         }
 
@@ -338,10 +335,6 @@ def cmd_murl(message):
     else:
         bot.reply_to(message, "No valid URLs detected. Please try again.")
 
-@app.route('/')
-def home():
-    return "Telegram Bot is running!"
-
 def run_bot():
     while True:
         try:
@@ -352,10 +345,5 @@ def run_bot():
             time.sleep(5)
 
 if __name__ == "__main__":
-    # Start the bot in a separate thread
-    bot_thread = threading.Thread(target=run_bot)
-    bot_thread.daemon = True
-    bot_thread.start()
-    
-    # Run Flask app
-    app.run(host='0.0.0.0', port=5000)
+    # Start the bot
+    run_bot()
