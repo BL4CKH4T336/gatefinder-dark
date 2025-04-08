@@ -7,7 +7,7 @@ import datetime
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Initialize the bot
-bot = telebot.TeleBot("YOUR_BOT_TOKEN_HERE")  # Replace with your actual bot token
+bot = telebot.TeleBot("7655241604:AAE0HaspxxxiW6_-4teJj_yxEgf4YwVUpE4")  # Replace with your actual bot token
 
 # Session management
 session = requests.Session()
